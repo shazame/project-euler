@@ -1,0 +1,6 @@
+$ runghc ./problem032.hs
+or
+$ ghc ./problem032.hs && ./problem032
+or
+$ ghci ./problem032.hs
+Main> main
