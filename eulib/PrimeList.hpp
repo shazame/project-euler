@@ -7,7 +7,7 @@
 
 namespace eulib{
 
-	template <class PrimeType = int>
+	template <class PrimeType = unsigned int>
 	class PrimeList {
 	private:
 		/* isPrimeList[0] == 0, isPrimeList[1] == 0, isPrimeList[2] == 1,

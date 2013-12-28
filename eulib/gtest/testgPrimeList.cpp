@@ -3,7 +3,7 @@
 #include "PrimeList.hpp"
 
 #define NB_PRIME 2000
-static int firstPrimes[NB_PRIME] = {
+static unsigned int firstPrimes[NB_PRIME] = {
 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71,
 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151,
 157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, 223, 227, 229, 233,
@@ -172,17 +172,17 @@ static int firstPrimes[NB_PRIME] = {
 using eulib::PrimeList;
 
 TEST (PrimeList, InitPrime) {
-	PrimeList<int> emptyList;
+	PrimeList<unsigned int> emptyList;
 
-	ASSERT_EQ( 2 , emptyList.nextPrime()  );
-	ASSERT_EQ( 3 , emptyList.nextPrime()  );
-	ASSERT_EQ( 2 , emptyList.firstPrime() );
-	ASSERT_EQ( 29, emptyList.nthPrime(10) );
-	ASSERT_LE( 29, emptyList.lastPrime()  );
+	ASSERT_EQ( (unsigned int)2 , emptyList.nextPrime()  );
+	ASSERT_EQ( (unsigned int)3 , emptyList.nextPrime()  );
+	ASSERT_EQ( (unsigned int)2 , emptyList.firstPrime() );
+	ASSERT_EQ( (unsigned int)29, emptyList.nthPrime(10) );
+	ASSERT_LE( (unsigned int)29, emptyList.lastPrime()  );
 }
 
 TEST (PrimeList, IsPrime) {
-	PrimeList<int> emptyList;
+	PrimeList<unsigned int> emptyList;
 
 	ASSERT_FALSE( emptyList.isPrime(0)    );
 	ASSERT_FALSE( emptyList.isPrime(1)    );
@@ -193,7 +193,7 @@ TEST (PrimeList, IsPrime) {
 	ASSERT_TRUE(  emptyList.isPrime(59)    );
 	ASSERT_TRUE(  emptyList.isPrime(3061)  );
 
-	int i = 0;
+	unsigned int i = 0;
 
 	for (i = 0; i < NB_PRIME; i++) {
 		ASSERT_EQ( true, emptyList.isPrime(firstPrimes[i]) );
@@ -201,20 +201,20 @@ TEST (PrimeList, IsPrime) {
 }
 
 TEST (PrimeList, ListCoherence) {
-	PrimeList<long> aPrimeList(NB_PRIME);
+	PrimeList<unsigned long> aPrimeList(NB_PRIME);
 
-	ASSERT_EQ( 2           , aPrimeList.firstPrime() );
-	ASSERT_LE( 0.9*NB_PRIME, aPrimeList.lastPrime()  );
-	ASSERT_EQ( 29          , aPrimeList.nthPrime(10) );
-	ASSERT_EQ( 113         , aPrimeList.nthPrime(30) );
-	ASSERT_EQ( 127         , aPrimeList.nextPrime()  );
-	ASSERT_LE( 127         , aPrimeList.lastPrime()  );
-	ASSERT_EQ( 2           , aPrimeList.firstPrime() );
+	ASSERT_EQ( (unsigned int)2           , aPrimeList.firstPrime() );
+	ASSERT_LE( (unsigned int)0.9*NB_PRIME, aPrimeList.lastPrime()  );
+	ASSERT_EQ( (unsigned int)29          , aPrimeList.nthPrime(10) );
+	ASSERT_EQ( (unsigned int)113         , aPrimeList.nthPrime(30) );
+	ASSERT_EQ( (unsigned int)127         , aPrimeList.nextPrime()  );
+	ASSERT_LE( (unsigned int)127         , aPrimeList.lastPrime()  );
+	ASSERT_EQ( (unsigned int)2           , aPrimeList.firstPrime() );
 }
 
 TEST (PrimeList, ListPrime) {
 	PrimeList<> primeList;
-	int i = 0;
+	unsigned int i = 0;
 
 	for (i = 0; i < NB_PRIME; i++) {
 		ASSERT_EQ( firstPrimes[i], primeList.nextPrime() );

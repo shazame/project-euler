@@ -2,7 +2,7 @@
 #include <assert.h>
 
 #define NB_PRIME 2000
-static int firstPrimes[NB_PRIME] = {
+static unsigned int firstPrimes[NB_PRIME] = {
 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71,
 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151,
 157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, 223, 227, 229, 233,
@@ -171,7 +171,7 @@ static int firstPrimes[NB_PRIME] = {
 using eulib::PrimeList;
 
 void testInitPrime(void) {
-	PrimeList<int> emptyList;
+	PrimeList<unsigned int> emptyList;
 
 	assert(emptyList.nextPrime()  == 2);
 	assert(emptyList.nextPrime()  == 3);
@@ -181,7 +181,7 @@ void testInitPrime(void) {
 }
 
 void testIsPrime(void) {
-	PrimeList<int> emptyList;
+	PrimeList<unsigned int> emptyList;
 
 	assert(emptyList.isPrime(0)    == false);
 	assert(emptyList.isPrime(1)    == false);
@@ -200,7 +200,7 @@ void testIsPrime(void) {
 }
 
 void testListCoherence(void) {
-	PrimeList<long> aPrimeList(NB_PRIME);
+	PrimeList<unsigned long> aPrimeList(NB_PRIME);
 
 	assert(aPrimeList.firstPrime() == 2);
 	assert(aPrimeList.lastPrime()  >= 0.9*NB_PRIME);
@@ -213,7 +213,7 @@ void testListCoherence(void) {
 
 void testListPrime(void) {
 	PrimeList<> primeList;
-	int i = 0;
+	unsigned int i = 0;
 
 	for (i = 0; i < NB_PRIME; i++) {
 		assert(primeList.nextPrime() == firstPrimes[i]);

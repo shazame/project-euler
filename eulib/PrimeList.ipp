@@ -23,9 +23,9 @@ namespace eulib{
 		}
 
 		// Basic primality test
-		for (int curTestedNb = nextTestedNb; curTestedNb <= n; curTestedNb++) {
+		for (unsigned int curTestedNb = nextTestedNb; curTestedNb <= n; curTestedNb++) {
 
-			for (int divIndex = 0; divIndex < primeList.size(); divIndex++) {
+			for (unsigned int divIndex = 0; divIndex < primeList.size(); divIndex++) {
 				PrimeType div = primeList[divIndex];
 
 				if (div*div > curTestedNb) {
@@ -59,7 +59,7 @@ namespace eulib{
 			nextTestedNb = 2;
 		}
 
-		int i, k = 0;
+		unsigned int i, k = 0;
 
 		// Sieve of Erathostenes
 		for (i = 2; i*i <= n; i++) {
