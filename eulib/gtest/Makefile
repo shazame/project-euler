@@ -21,7 +21,7 @@ ${LIBGTEST}:
 	g++ -I${GTEST_DIR}/include -I${GTEST_DIR} -c ${GTEST_DIR}/src/gtest_main.cc
 	ar -rv ${LIBGTEST} gtest-all.o gtest_main.o
 
-%: %.cpp ${DEP}
+%: %.cpp ${LIBGTEST} ${DEP}
 	${CXX} ${CPPFLAGS} ${CXXFLAGS} $< ${LIBGTEST} -o $@ ${LDFLAGS}
 
 clean:
