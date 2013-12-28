@@ -21,9 +21,9 @@ gtest:
 	${CXX} ${CPPFLAGS} ${CXXFLAGS} $< -o $@ ${LDFLAGS}
 
 clean:
-	find . -name "*~" -delete
-	make -C ${GTEST_DIR} clean
+	@ find . -name "*~" -delete
+	@ make -C ${GTEST_DIR} clean
 
 mrproper: clean
-	rm -f $(TEST)
-	make -C ${GTEST_DIR} mrproper
+	@ rm -f $(TEST)
+	@ make -C ${GTEST_DIR} mrproper

@@ -25,7 +25,7 @@ ${LIBGTEST}:
 	${CXX} ${CPPFLAGS} ${CXXFLAGS} $< ${LIBGTEST} -o $@ ${LDFLAGS}
 
 clean:
-	rm -f gtest-all.o gtest_main.o
+	@ rm -f gtest-all.o gtest_main.o
 
 mrproper: clean
-	rm -f $(BIN) ${LIBGTEST}
+	@ rm -f $(BIN) ${LIBGTEST}
