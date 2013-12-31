@@ -11,3 +11,5 @@ folder _eulib_
 
 Various tools can also be found in the _tools_ folder. The tools can be
 useful for some problems.
+`convert` can be used to create the header of a C/C++ file from the text
+describing the problem.
